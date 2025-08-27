@@ -1,0 +1,101 @@
+{
+  "Rust Function": {
+    "prefix": "fn",
+    "body": [
+      "fn ${1:name}(${2:args})${3} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Rust function"
+  },
+  "Main Function": {
+    "prefix": "main",
+    "body": [
+      "fn main() {",
+      "    $0",
+      "}"
+    ],
+    "description": "Rust main function"
+  },
+  "Rust Test": {
+    "prefix": "test",
+    "body": [
+      "#[test]",
+      "fn ${1:test_name}() {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Rust test function"
+  },
+  "Rust Struct": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:Name} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Rust struct"
+  },
+  "impl Block": {
+    "prefix": "impl",
+    "body": [
+      "impl ${1:Type} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create an impl block"
+  },
+  "Rust Enum": {
+    "prefix": "enum",
+    "body": [
+      "enum ${1:Name} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a Rust enum"
+  },
+  "Rust Println": {
+    "prefix": "println",
+    "body": [
+      "println!(\"${1}\");"
+    ],
+    "description": "Rust println macro"
+  },
+  "Rust Match": {
+    "prefix": "match",
+    "body": [
+      "match ${1:expr} {",
+      "    $2",
+      "}"
+    ],
+    "description": "Rust match statement"
+  },
+  "Rust Result Error": {
+    "prefix": "err",
+    "body": [
+      "Err(${1:error})"
+    ],
+    "description": "Return an Err"
+  },
+  "Rust Ok": {
+    "prefix": "ok",
+    "body": [
+      "Ok(${1:value})"
+    ],
+    "description": "Return an Ok"
+  },
+  "Rust Option Some": {
+    "prefix": "some",
+    "body": [
+      "Some(${1:value})"
+    ],
+    "description": "Option::Some"
+  },
+  "Rust Option None": {
+    "prefix": "none",
+    "body": [
+      "None"
+    ],
+    "description": "Option::None"
+  }
+}

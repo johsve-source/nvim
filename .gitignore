@@ -1,0 +1,24 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Neovim state
+Session.vim
+.netrwhist
+shada/
+swap/
+undo/
+spell/
+
+# Plugin managers
+# Lazy.nvim / packer.nvim / mason.nvim artifacts
+.lazy/
+plugin/packer_compiled.lua
+site/
+mason/
+.pack/
+
