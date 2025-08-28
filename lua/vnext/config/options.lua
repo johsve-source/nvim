@@ -19,6 +19,7 @@ end
 _G.vnext.foldexpr = foldexpr
 
 -- stylua: ignore start
+o.autochdir      = true                                            -- change pwd to selected file
 o.clipboard      = "unnamedplus"                                   -- keep in sync with the system clipboard
 o.cursorline     = true                                            -- highlight the current line
 o.dir            = vim.fn.stdpath("data") .. "/swp"                -- swap file directory
