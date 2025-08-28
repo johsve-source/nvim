@@ -83,15 +83,62 @@ return {
     opts = {},
   },
   {
-    "catppuccin/nvim",
-    priority = 1000,
+    --[[
+   "catppuccin/nvim",
+    presetsiority = 1000,
     lazy = false,
     config = function()
       require("catppuccin").setup({
         flavour = "mocha",
-        auto_integrations = true, 
+        auto_integrations = true,
+        transparent_background = true,
       })
       vim.cmd("colorscheme catppuccin")
+    ]]
+    "thesimonho/kanagawa-paper.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("kanagawa-paper").setup({
+        undercurl = true, -- enable undercurls
+        transparent = false, -- solid background
+        gutter = false, -- gutter background
+        diag_background = true, -- diagnostics virtual text background
+        dim_inactive = false, -- do not dim inactive windows
+        terminal_colors = true, -- enable terminal colors
+        cache = false, -- disable caching
+
+        styles = {
+          comment = { italic = true },
+          functions = { italic = false },
+          keyword = { italic = false, bold = false },
+          statement = { italic = false, bold = false },
+          type = { italic = false },
+        },
+
+        colors = {
+          palette = {},
+          theme = {
+            canvas = {},
+          },
+        },
+
+        overrides = function(colors)
+          return {
+            Normal = { bg = "#11111b" },
+            NormalNC = { bg = "#11111b" },
+            NormalFloat = { bg = "#11111b" },
+          }
+        end,
+
+        auto_plugins = true, -- auto detect plugins via lazy.nvim
+        all_plugins = package.loaded.lazy == nil,
+        plugins = {},
+        integrations = {}, -- no extra integrations
+      })
+
+      -- set colorscheme
+      vim.cmd("colorscheme kanagawa-paper")
     end,
   },
 }
