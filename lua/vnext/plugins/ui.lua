@@ -29,7 +29,6 @@ return {
     "mikavilpas/yazi.nvim",
     lazy = true, -- use `event = "VeryLazy"` for netrw replacement
     keys = {
-      -- NOTE: my mapping <leader>lf is soo good but in the LSP cluster
       {
         "<leader>lf",
         "<cmd>Yazi<cr>",
@@ -83,15 +82,53 @@ return {
     opts = {},
   },
   {
-    "catppuccin/nvim",
+    "rebelot/kanagawa.nvim",
     priority = 1000,
     lazy = false,
     config = function()
-      require("catppuccin").setup({
-        flavour = "mocha",
-        auto_integrations = true, 
+      require("kanagawa").setup({
+        compile = true, -- compiled colors for speed
+        undercurl = true,
+        commentStyle = { italic = true },
+        functionStyle = { bold = false },
+        keywordStyle = { italic = true, bold = false },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false,
+        dimInactive = false,
+        terminalColors = false,
+        colors = {
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        overrides = function(colors)
+          return {}
+        end,
+        theme = "wave",
+        background = { dark = "wave", light = "lotus" },
+
+        -- enable all available integrations
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          nvim_treesitter = true,
+          lsp = true,
+          lsp_semantic_tokens = true,
+          lsp_trouble = true,
+          markdown = true,
+          notify = true,
+          symbols_outline = true,
+          barbar = true,
+          bufferline = true,
+          which_key = true,
+          indent_blankline = true,
+          dashboard = true,
+        },
       })
-      vim.cmd("colorscheme catppuccin")
+
+      vim.cmd("colorscheme kanagawa")
     end,
   },
 }
