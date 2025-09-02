@@ -83,42 +83,34 @@ return {
   },
 
   {
-    "dgox16/oldworld.nvim",
-    name = "oldworld",
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
     lazy = false,
     priority = 1000,
     config = function()
-      require("oldworld").setup({
-        terminal_colors = true,
-        variant = "oled", -- "default", "oled", "cooler"
-        styles = {
-          comments = { italic = true },
-          keywords = { bold = true },
-          booleans = { bold = true },
-        },
-        integrations = {
-          alpha = true,
-          cmp = true,
-          flash = true,
-          gitsigns = true,
-          hop = false,
-          indent_blankline = true,
-          lazy = true,
-          lsp = true,
-          markdown = true,
-          mason = true,
-          navic = false,
-          neo_tree = false,
-          neogit = false,
-          neorg = false,
-          noice = true,
-          notify = true,
-          rainbow_delimiters = true,
-          telescope = true,
-          treesitter = true,
+      require("github-theme").setup({
+        options = {
+          transparent = true, -- låter terminalens bg användas
+          hide_end_of_buffer = true,
+          hide_nc_statusline = true,
+          darken = {
+            floats = true,
+            sidebars = {
+              enable = true,
+            },
+          },
         },
       })
-      vim.cmd.colorscheme("oldworld")
+
+      vim.cmd("colorscheme github_dark_default")
+
+      vim.cmd([[
+      hi Normal guibg=none
+      hi NormalNC guibg=none
+      hi NonText guibg=none
+      hi SignColumn guibg=none
+      hi EndOfBuffer guibg=none
+    ]])
     end,
   },
 }
