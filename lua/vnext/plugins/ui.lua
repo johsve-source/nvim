@@ -83,12 +83,42 @@ return {
   },
 
   {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
+    "dgox16/oldworld.nvim",
+    name = "oldworld",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme moonfly]])
+      require("oldworld").setup({
+        terminal_colors = true,
+        variant = "oled", -- "default", "oled", "cooler"
+        styles = {
+          comments = { italic = true },
+          keywords = { bold = true },
+          booleans = { bold = true },
+        },
+        integrations = {
+          alpha = true,
+          cmp = true,
+          flash = true,
+          gitsigns = true,
+          hop = false,
+          indent_blankline = true,
+          lazy = true,
+          lsp = true,
+          markdown = true,
+          mason = true,
+          navic = false,
+          neo_tree = false,
+          neogit = false,
+          neorg = false,
+          noice = true,
+          notify = true,
+          rainbow_delimiters = true,
+          telescope = true,
+          treesitter = true,
+        },
+      })
+      vim.cmd.colorscheme("oldworld")
     end,
   },
 }
