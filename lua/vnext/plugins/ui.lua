@@ -81,54 +81,30 @@ return {
     },
     opts = {},
   },
+
   {
-    "rebelot/kanagawa.nvim",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      require("kanagawa").setup({
-        compile = true, -- compiled colors for speed
-        undercurl = true,
-        commentStyle = { italic = true },
-        functionStyle = { bold = false },
-        keywordStyle = { italic = true, bold = false },
-        statementStyle = { bold = true },
-        typeStyle = {},
-        transparent = false,
-        dimInactive = false,
-        terminalColors = false,
-        colors = {
-          palette = {},
-          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-        },
-        overrides = function(colors)
-          return {}
-        end,
-        theme = "wave",
-        background = { dark = "wave", light = "lotus" },
-
-        -- enable all available integrations
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          telescope = true,
-          nvim_treesitter = true,
-          lsp = true,
-          lsp_semantic_tokens = true,
-          lsp_trouble = true,
-          markdown = true,
-          notify = true,
-          symbols_outline = true,
-          barbar = true,
-          bufferline = true,
-          which_key = true,
-          indent_blankline = true,
-          dashboard = true,
-        },
-      })
-
-      vim.cmd("colorscheme kanagawa")
+    "tiagovla/tokyodark.nvim",
+    opts = {
+      transparent_background = false, -- set background to transparent
+      gamma = 1.00, -- adjust the brightness of the theme
+      styles = {
+        comments = { italic = true }, -- style for comments
+        keywords = { italic = true }, -- style for keywords
+        identifiers = { italic = true }, -- style for identifiers
+        functions = {}, -- style for functions
+        variables = {}, -- style for variables
+      },
+      custom_highlights = function(highlights, palette)
+        return {}
+      end, -- extend highlights
+      custom_palette = function(palette)
+        return {}
+      end, -- extend palette
+      terminal_colors = true, -- enable terminal colors
+    },
+    config = function(_, opts)
+      require("tokyodark").setup(opts)
+      vim.cmd.colorscheme("tokyodark")
     end,
   },
 }
