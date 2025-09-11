@@ -153,33 +153,8 @@ return {
   },
 
   {
-    "allaman/emoji.nvim",
-    dev = true,
-    ft = "markdown",
-    opts = { enable_cmp_integration = true, plugin_path = vim.fn.expand("~/workspace/github.com/johsve-source") },
-  },
-
-  {
     "saghen/blink.cmp",
-    dependencies = { "allaman/emoji.nvim", "saghen/blink.compat" },
-    opts = {
-      sources = {
-        default = { "emoji" },
-        providers = {
-          emoji = {
-            name = "emoji",
-            module = "blink.compat.source",
-            transform_items = function(_, items)
-              local kind = require("blink.cmp.types").CompletionItemKind.Text
-              for i = 1, #items do
-                items[i].kind = kind
-              end
-              return items
-            end,
-          },
-        },
-      },
-    },
+    dependencies = { "saghen/blink.compat" },
   },
 
   {
